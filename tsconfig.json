@@ -1,0 +1,27 @@
+{
+  "ts-node": {},
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "types": [
+      "node"
+    ],
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/**/*",
+    "src/types.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

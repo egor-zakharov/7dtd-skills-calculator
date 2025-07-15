@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+}
+
+.skill-points-tracker {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100%;
+  background-image: url('../assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.skills-calculator {
+  max-width: 1200px;
+  margin: 0 auto 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
+  background-color: transparent;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.calculator-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.attributes-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.attribute-icon-image {
+  display: inline-block;
+  cursor: pointer;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  filter: brightness(70%);
+}
+
+.attribute-icon-image.active {
+  filter: brightness(100%);
+}
+
+.perks-container {
+  display: flex;
+  gap: 20px;
+  min-height: 400px;
+}
+
+.perks-list {
+  flex: 1;
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 6px;
+  overflow-y: auto;
+}
+
+.perks-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+}
+
+.perk-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.perk-item:hover {
+  background-color: #3a3a2a;
+}
+
+.perk-item.active {
+  background-color: #3a3a3a;
+  box-shadow: inset 0 0 0 1px #4CAF50;
+}
+
+.perk-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.perk-item-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.perk-item-content span:first-child {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.perk-levels-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.perk-level-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  background-color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+}
+
+.perk-level-btn:hover {
+  background-color: #3a3a3a;
+}
+
+.perk-level-btn.active {
+  background-color: #3a3a3a;
+  box-shadow: inset 0 0 0 1px #4CAF50;
+}
+
+.perk-level-btn .level-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.perk-level-btn .level-info .level {
+  margin-right: auto;
+}
+
+.perk-level-btn .level-info .name {
+  flex: 1;
+  text-align: center;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.perk-level-btn .level-info .cost {
+  margin-left: auto;
+}
+
+.perk-level-btn .description {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+.perk-detail-container {
+  margin: 0.25rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-transform: initial;
+  letter-spacing: 0.8px;
+  font-size: 1rem;
+  min-height: 150px;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border-bottom: 2px solid #000;
+  cursor: not-allowed;
+  opacity: 0.8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
+}
+
+.perk-detail-container .level-index {
+  width: 10%;
+  text-align: center;
+  margin: 0;
+  font-weight: bold;
+}
+
+.perk-detail-container .content {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.perk-detail-container .content .level-title {
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.perk-detail-container .content p {
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.perk-detail-container .cost {
+  width: 10%;
+  text-align: center;
+  margin: 0;
+}
+
+.perk-details {
+  flex: 2;
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.perk-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #4CAF50;
+}
+
+.perk-description {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+.level-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.level-row span {
+  flex: 1;
+  text-align: center;
+}
+
+.total-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: rgba(42, 42, 42, 0.7);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.total-cost,
+.character-level,
+.available-points {
+  font-size: 16px;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+.reset-btn {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 36px;
+  width: 80px; /* Фиксированная ширина */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-btn {
+  padding: 8px 16px;
+}
+
+.share-wrapper {
+  margin-left: auto;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between; /* Распределяем элементы по краям */
+  gap: 10px;
+}
+
+.copy-message {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: default;
+  width: 80px; /* Синхронизация с reset-btn */
+  height: 36px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+.copy-message span,
+.reset-btn span {
+  display: block; /* Убеждаемся, что текст занимает место внутри */
+  width: 100%;
+  text-align: center;
+}
