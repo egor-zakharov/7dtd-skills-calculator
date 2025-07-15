@@ -28,8 +28,6 @@ const PerkCard: React.FC<PerkCardProps> = ({ perk, currentLevel, onLevelChange, 
       <div className="space-y-1">
         {levelOptions.map((level) => {
           const requiredAttributeLevel = perk.levels.find((l) => l.level === level)?.attributeRequirement || 1;
-          const totalPointsChange = level - (perkLevels[perk.name] || 0);
-
           return (
             <label key={level} className="perk-card label">
               <input

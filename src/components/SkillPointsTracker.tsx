@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SkillsCalculator from './SkillsCalculator';
 
-const backgroundImage = './assets/background.jpg'
+const backgroundImage = './assets/background.jpg';
 
 interface SkillPointsTrackerProps {
   skillPoints: number;
@@ -11,7 +11,9 @@ interface SkillPointsTrackerProps {
   setPerkLevels: (levels: Record<string, number> | ((prev: Record<string, number>) => Record<string, number>)) => void;
 }
 
-const SkillPointsTracker: React.FC<SkillPointsTrackerProps> = ({ skillPoints, setSkillPoints, setAttributeLevels, setPerkLevels }) => {
+const SkillPointsTracker: React.FC<SkillPointsTrackerProps> = ({ skillPoints, setSkillPoints, setAttributeLevels }) => {
+  const [perkLevels, setLocalPerkLevels] = useState<Record<string, number>>({});
+
   return (
     <div className="skill-points-tracker">
       <div className="overlay"></div>
@@ -19,7 +21,8 @@ const SkillPointsTracker: React.FC<SkillPointsTrackerProps> = ({ skillPoints, se
         skillPoints={skillPoints}
         setSkillPoints={setSkillPoints}
         setAttributeLevels={setAttributeLevels}
-        setPerkLevels={setPerkLevels}
+        setPerkLevels={setLocalPerkLevels}
+        perkLevels={perkLevels}
       />
     </div>
   );
