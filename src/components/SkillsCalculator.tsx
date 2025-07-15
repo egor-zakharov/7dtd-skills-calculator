@@ -201,7 +201,7 @@ const SkillsCalculator: React.FC<SkillsCalculatorProps> = ({
       setManualAttributeLevels(newManualAttributeLevels);
       setLocalAttributeLevels(newAttributeLevels);
       setAttributeLevels(newAttributeLevels);
-      const newHash = generateShareLinkFromLevels(newAttributeLevels, perkLevels); // Используем новые уровни
+      const newHash = generateShareLinkFromLevels(newAttributeLevels, perkLevels);
       window.history.pushState({}, '', `/7dtd-skills-calculator/${newHash}`);
     } else {
       const perk = attributes.find(a => a.perks?.some(p => p.name === perkName))?.perks?.find(p => p.name === perkName);
@@ -212,7 +212,7 @@ const SkillsCalculator: React.FC<SkillsCalculatorProps> = ({
         const newPerkLevels = { ...perkLevels, [perkName]: newLevel };
         setLocalPerkLevels(newPerkLevels);
         setPerkLevels(newPerkLevels);
-        const newHash = generateShareLink();
+        const newHash = generateShareLinkFromLevels(attributeLevels, newPerkLevels); // Используем новые perkLevels
         window.history.pushState({}, '', `/7dtd-skills-calculator/${newHash}`);
       }
     }
