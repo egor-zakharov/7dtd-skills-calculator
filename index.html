@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7DTD Skills Calculator — новый адрес</title>
+  <link rel="canonical" href="https://7dtd-skills.online/">
+  <script>
+    (() => {
+      const target = new URL('https://7dtd-skills.online/');
+      target.search = window.location.search;
+      target.hash = window.location.hash;
+      try {
+        if (!target.hash) target.hash = localStorage.getItem('7dtd-build') || '';
+        if (!target.searchParams.has('books')) {
+          const books = JSON.parse(localStorage.getItem('7dtd-books') || '[]');
+          if (Array.isArray(books) && books.every((id) => typeof id === 'string')) {
+            target.searchParams.set('books', books.length ? books.join(',') : '~');
+          }
+        }
+      } catch { /* Links still work when storage is unavailable. */ }
+      window.location.replace(target.href);
+    })();
+  </script>
+  <style>
+    body { margin: 0; padding: 48px 24px; background: #171a17; color: #ecece7; font: 18px/1.6 Arial, sans-serif; }
+    main { max-width: 640px; margin: auto; }
+    a { color: #a0d778; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Калькулятор переехал</h1>
+    <p>Новый адрес: <a href="https://7dtd-skills.online/">7dtd-skills.online</a>.</p>
+    <noscript><p>Включите JavaScript для автоматического переноса ссылки с билдом.</p></noscript>
+  </main>
+</body>
+</html>
